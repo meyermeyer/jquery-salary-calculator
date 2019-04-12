@@ -2,12 +2,36 @@ $(document).ready(documentReady);
 
 function documentReady(){
     console.log('jQuery');
+    //handle Submit button click
+    $('#submitButton').on('click',submit)
+
+//create employee array
+
+//create employee object from input vals
+
+}
+
+function submit() {
+    let employeeArray = [];
+    let employeeObject = {
+        lastName: $('#lastName').val(),
+        firstName: $('#firstName').val(),
+        idNumber: $('#idNumber').val(),
+        jobTitle: $('#jobTitle').val(),
+        annualSalary: parseFloat($('#annualSalary').val())
+    }
+    console.log('submit button clicked');
+    employeeArray.push(employeeObject);
+    console.log(employeeObject);
+    
+    
+
+    
 }
 
 
-//handle Submit button click
-//create employee array
-//create employee object from input vals
+
+
 //add object to array
 //display employee array on DOM
 
