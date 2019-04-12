@@ -1,19 +1,32 @@
 $(document).ready(documentReady);
-
+//create employee array
+const employeeArray = [];
 function documentReady(){
     console.log('jQuery');
     //handle Submit button click
-    $('#submitButton').on('click',submit)
-
-//create employee array
-
-//create employee object from input vals
-
+    $('#submitButton').on('click',submitClick);
+   
 }
 
-function submit() {
-    let employeeArray = [];
-    let employeeObject = {
+function addToDom () {
+    console.log('in addToDom');
+    $('#formInfo table tbody tr').empty();
+    //loop through employeeArray
+    for (i=0; i<employeeArray.length; i++) {
+    
+    $('#formInfo table tbody').append(`<tr>
+        <td>${employeeArray[i].lastName}</td>
+        <td>${employeeArray[i].firstName}</td>
+        <td>${employeeArray[i].idNumber}</td>
+        <td>${employeeArray[i].jobTitle}</td>
+        <td>${employeeArray[i].annualSalary}</td>
+        </tr>`);
+    }
+}
+
+function submitClick() {
+    //create employee object from input vals
+    const employeeObject = {
         lastName: $('#lastName').val(),
         firstName: $('#firstName').val(),
         idNumber: $('#idNumber').val(),
@@ -21,12 +34,12 @@ function submit() {
         annualSalary: parseFloat($('#annualSalary').val())
     }
     console.log('submit button clicked');
-    employeeArray.push(employeeObject);
-    console.log(employeeObject);
-    
-    
 
+    employeeArray.push(employeeObject);
+    // console.log(employeeObject);
+    console.log(employeeArray);
     
+    addToDom();
 }
 
 
