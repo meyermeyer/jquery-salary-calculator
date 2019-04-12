@@ -7,10 +7,11 @@ function documentReady(){
     $('#submitButton').on('click',submitClick);
    
 }
-
+//display employee array on DOM
 function addToDom () {
     console.log('in addToDom');
     $('#formInfo table tbody tr').empty();
+
     //loop through employeeArray
     for (i=0; i<employeeArray.length; i++) {
     
@@ -34,22 +35,29 @@ function submitClick() {
         annualSalary: parseFloat($('#annualSalary').val())
     }
     console.log('submit button clicked');
+    //clear inputs
+    $('#lastName').val("");
+    $('#firstName').val("");
+    $('#idNumber').val("");
+    $('#jobTitle').val("");
+    $('#annualSalary').val("");
 
+    //add object to array
     employeeArray.push(employeeObject);
     // console.log(employeeObject);
     console.log(employeeArray);
-    
     addToDom();
 }
 
 
 
 
-//add object to array
-//display employee array on DOM
+
+
 
 //display monthly costs
     //loop through employee array
+    for(i=0; )
     //take annual salary from each employee object, divide by 12, and add
     //display monthly total
     //if total>20k, change background to red
