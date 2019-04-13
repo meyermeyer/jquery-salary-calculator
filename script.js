@@ -62,6 +62,19 @@ function removeInputs () {
         annualSalary: parseFloat($('#annualSalary').val())
     }
 
+
+//loop through array
+    for(i=0; i<employeeArray.length; i++) {
+        //if array[i]=employeeObject splice array at index
+        if (employeeArray[i]==employeeObject) {
+            console.log('remove object');
+            
+            employeeArray.splice(i,1);
+        }//end if
+    }// end loop
+    console.log(employeeArray);
+    
+
 }
 
 function submitInputs() {
