@@ -4,12 +4,12 @@ const employeeArray = [];
 function documentReady(){
     console.log('jQuery');
     //handle Submit button click
-    $('#submitButton').on('click',submitClick);
+    $('#submitButton').on('click',submitInputs);
    
 }
 //display employee array on DOM
 function addToDom () {
-    console.log('in addToDom');
+    // console.log('in addToDom'); //confirming funtion is running
     $('#formInfo table tbody tr').empty();
 
     //loop through employeeArray
@@ -25,7 +25,27 @@ function addToDom () {
     }
 }
 
-function submitClick() {
+//display monthly costs
+function displayBudget() {
+    console.log('in displayBudget'); //confirming funtion is running
+    let annualTotal = 0;
+    //loop through employee array
+    for (i = 0; i < employeeArray.length; i++) {
+        annualTotal += employeeArray[i].annualSalary;
+    }
+    let monthlyTotal = annualTotal / 12;
+    console.log(annualTotal);
+    console.log(monthlyTotal);
+    $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${monthlyTotal}</p>`);
+    
+}
+
+    //take annual salary from each employee object, divide by 12, and add
+    //display monthly total
+    //if total>20k, change background to red
+
+function submitInputs() {
+    
     //create employee object from input vals
     const employeeObject = {
         lastName: $('#lastName').val(),
@@ -34,7 +54,7 @@ function submitClick() {
         jobTitle: $('#jobTitle').val(),
         annualSalary: parseFloat($('#annualSalary').val())
     }
-    console.log('submit button clicked');
+    // console.log('submit button clicked');
     //clear inputs
     $('#lastName').val("");
     $('#firstName').val("");
@@ -44,9 +64,10 @@ function submitClick() {
 
     //add object to array
     employeeArray.push(employeeObject);
-    // console.log(employeeObject);
-    console.log(employeeArray);
-    addToDom();
+    displayBudget(); //call display budget function
+    // console.log(employeeObject); //testing that object is created properly
+    // console.log(employeeArray); //testing object is pushed to array
+    addToDom(); //run addToDom to append table with updated array
 }
 
 
@@ -55,12 +76,7 @@ function submitClick() {
 
 
 
-//display monthly costs
-    //loop through employee array
-    for(i=0; )
-    //take annual salary from each employee object, divide by 12, and add
-    //display monthly total
-    //if total>20k, change background to red
+
 
 //handle delete button click
 //create employee object from input vals
