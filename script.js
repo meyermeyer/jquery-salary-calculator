@@ -5,6 +5,8 @@ function documentReady(){
     console.log('jQuery');
     //handle Submit button click
     $('#submitButton').on('click',submitInputs);
+    //handle delete button click
+    $('#deleteButton').on('click', removeInputs);
    
 }
 //display employee array on DOM
@@ -49,8 +51,18 @@ function displayBudget() {
     }
 }
 
+function removeInputs () {
+    console.log('delete button clicked');
     
-   
+    const employeeObject = {
+        lastName: $('#lastName').val(),
+        firstName: $('#firstName').val(),
+        idNumber: $('#idNumber').val(),
+        jobTitle: $('#jobTitle').val(),
+        annualSalary: parseFloat($('#annualSalary').val())
+    }
+
+}
 
 function submitInputs() {
     
@@ -86,7 +98,7 @@ function submitInputs() {
 
 
 
-//handle delete button click
+
 //create employee object from input vals
 //remove object from array
 //display new employee array on DOM
