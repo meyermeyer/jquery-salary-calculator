@@ -66,13 +66,28 @@ function removeInputs () {
 //loop through array
     for(i=0; i<employeeArray.length; i++) {
         //if array[i]=employeeObject splice array at index
-        if (employeeArray[i]==employeeObject) {
+        // console.log(employeeArray[i]);
+        // console.log(employeeObject);
+        
+        
+        if (employeeArray[i].lastName == employeeObject.lastName 
+            && employeeArray[i].firstName == employeeObject.firstName 
+            && employeeArray[i].idNumber == employeeObject.idNumber 
+            && employeeArray[i].jobTitle == employeeObject.jobTitle 
+            && employeeArray[i].annualSalary == employeeObject.annualSalary){
             console.log('remove object');
             
             employeeArray.splice(i,1);
         }//end if
     }// end loop
-    console.log(employeeArray);
+    // console.log(employeeArray);
+    //clear inputs
+    $('#lastName').val("");
+    $('#firstName').val("");
+    $('#idNumber').val("");
+    $('#jobTitle').val("");
+    $('#annualSalary').val("");
+    addToDom ();
     
 
 }
