@@ -34,9 +34,10 @@ function displayBudget() {
         annualTotal += employeeArray[i].annualSalary;
     }
     let monthlyTotal = annualTotal / 12;
+    let monthlyTotalWithDec = monthlyTotal.toFixed(2);
     console.log(annualTotal);
     console.log(monthlyTotal);
-    $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${monthlyTotal}</p>`);
+    $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${monthlyTotalWithDec}</p>`);
     
 }
 
