@@ -33,17 +33,24 @@ function displayBudget() {
     for (i = 0; i < employeeArray.length; i++) {
         annualTotal += employeeArray[i].annualSalary;
     }
-    let monthlyTotal = annualTotal / 12;
-    let monthlyTotalWithDec = monthlyTotal.toFixed(2);
-    console.log(annualTotal);
-    console.log(monthlyTotal);
-    $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${monthlyTotalWithDec}</p>`);
+    //take annual salary from each employee object, divide by 12, and add
     
+    let monthlyTotal = annualTotal / 12;
+    let monthlyTotalWithDec = monthlyTotal.toFixed(2); //makes the number show 2 decimal places -- still need to figure out commas
+    // console.log(annualTotal);
+    // console.log(monthlyTotal);
+    //display monthly total
+    $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${monthlyTotalWithDec}</p>`);
+    //if total>20k, change background to red
+    if (monthlyTotal > 20000) {
+        console.log('change background color');
+        
+        $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: <span class="red">$${monthlyTotalWithDec}</span></p>`);
+    }
 }
 
-    //take annual salary from each employee object, divide by 12, and add
-    //display monthly total
-    //if total>20k, change background to red
+    
+   
 
 function submitInputs() {
     
