@@ -52,7 +52,7 @@ function displayBudget() {
 }
 
 function removeInputs () {
-    console.log('delete button clicked');
+    //console.log('delete button clicked');
     
     const employeeObject = {
         lastName: $('#lastName').val(),
@@ -62,20 +62,19 @@ function removeInputs () {
         annualSalary: parseFloat($('#annualSalary').val())
     }
 
-
+//remove object from array
 //loop through array
     for(i=0; i<employeeArray.length; i++) {
         //if array[i]=employeeObject splice array at index
         // console.log(employeeArray[i]);
         // console.log(employeeObject);
-        
-        
+
         if (employeeArray[i].lastName == employeeObject.lastName 
             && employeeArray[i].firstName == employeeObject.firstName 
             && employeeArray[i].idNumber == employeeObject.idNumber 
             && employeeArray[i].jobTitle == employeeObject.jobTitle 
             && employeeArray[i].annualSalary == employeeObject.annualSalary){
-            console.log('remove object');
+            // console.log('remove object');
             
             employeeArray.splice(i,1);
         }//end if
@@ -87,13 +86,12 @@ function removeInputs () {
     $('#idNumber').val("");
     $('#jobTitle').val("");
     $('#annualSalary').val("");
-    addToDom ();
-    
 
+    //display new employee array on DOM
+    addToDom ();
 }
 
 function submitInputs() {
-    
     //create employee object from input vals
     const employeeObject = {
         lastName: $('#lastName').val(),
@@ -127,8 +125,8 @@ function submitInputs() {
 
 
 
-//create employee object from input vals
-//remove object from array
-//display new employee array on DOM
+
+
+
 
 

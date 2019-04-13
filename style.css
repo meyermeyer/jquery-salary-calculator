@@ -1,3 +1,11 @@
 .red {
     background-color: red;
 }
+
+#inputs ul li{
+    display: inline-block;
+}
+
+#buttons ul li {
+    display: inline-block;
+}
