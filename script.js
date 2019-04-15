@@ -33,7 +33,7 @@ function displayBudget() {
     let annualTotal = 0;
     //loop through employee array
     for (i = 0; i < employeeArray.length; i++) {
-        annualTotal += employeeArray[i].annualSalary;
+        annualTotal += parseFloat(employeeArray[i].annualSalary);
     }
     //take annual salary from each employee object, divide by 12, and add
     
@@ -98,8 +98,10 @@ function submitInputs() {
         firstName: $('#firstName').val(),
         idNumber: $('#idNumber').val(),
         jobTitle: $('#jobTitle').val(),
-        annualSalary: parseFloat($('#annualSalary').val())
+        annualSalary: parseFloat($('#annualSalary').val()).toLocaleString('en')
     }
+
+
     // console.log('submit button clicked');
     //clear inputs
     $('#lastName').val("");
