@@ -4,7 +4,7 @@ const employeeArray = [];
 function documentReady(){
     console.log('jQuery');
     //handle Submit button click
-    $('#submitButton').on('click',submitInputs);
+    $('#submitButton').on('click', submitInputs);
     //handle delete button click
     $('#deleteButton').on('click', removeInputs);
    
@@ -92,6 +92,7 @@ function removeInputs () {
 }
 
 function submitInputs() {
+    
     //create employee object from input vals
     const employeeObject = {
         lastName: $('#lastName').val(),
@@ -100,7 +101,12 @@ function submitInputs() {
         jobTitle: $('#jobTitle').val(),
         annualSalary: parseFloat($('#annualSalary').val())
     }
-
+    //error message if salary NaN
+    if (!employeeObject.annualSalary) {
+        window.alert("Please enter a number into the Annual Salary field."); //doesn't allow NaN result
+        $('#annualSalary').val(""); //clear input
+        return false;
+    }
 
     // console.log('submit button clicked');
     //clear inputs
