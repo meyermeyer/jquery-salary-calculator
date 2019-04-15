@@ -22,8 +22,8 @@ function addToDom () {
         <td>${employeeArray[i].firstName}</td>
         <td>${employeeArray[i].idNumber}</td>
         <td>${employeeArray[i].jobTitle}</td>
-        <td>${employeeArray[i].annualSalary}</td>
-        </tr>`);
+        <td>$${parseFloat(employeeArray[i].annualSalary.toFixed(2)).toLocaleString('en')}</td> 
+        </tr>`); //toFixed forces annual salary to display with 2 decimal places, then parseFloat to turn back into a number (from a string), then toLocaleSting('en') adds commas
     }
 }
 
@@ -42,12 +42,12 @@ function displayBudget() {
     // console.log(annualTotal);
     // console.log(monthlyTotal);
     //display monthly total
-    $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${monthlyTotalWithDec}</p>`);
+    $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${parseFloat(monthlyTotalWithDec).toLocaleString('en')}</p>`);
     //if total>20k, change background to red
     if (monthlyTotal > 20000) {
         console.log('change background color');
         
-        $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: <span class="red">$${monthlyTotalWithDec}</span></p>`);
+        $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: <span class="red">$${parseFloat(monthlyTotalWithDec).toLocaleString('en')}</span></p>`);
     }
 }
 
@@ -98,7 +98,7 @@ function submitInputs() {
         firstName: $('#firstName').val(),
         idNumber: $('#idNumber').val(),
         jobTitle: $('#jobTitle').val(),
-        annualSalary: parseFloat($('#annualSalary').val()).toLocaleString('en')
+        annualSalary: parseFloat($('#annualSalary').val())
     }
 
 
