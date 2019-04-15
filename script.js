@@ -18,8 +18,8 @@ function addToDom () {
     for (i=0; i<employeeArray.length; i++) {
     
     $('#formInfo table tbody').append(`<tr>
-        <td>${employeeArray[i].lastName}</td>
         <td>${employeeArray[i].firstName}</td>
+        <td>${employeeArray[i].lastName}</td>
         <td>${employeeArray[i].idNumber}</td>
         <td>${employeeArray[i].jobTitle}</td>
         <td>$${parseFloat(employeeArray[i].annualSalary.toFixed(2)).toLocaleString('en')}</td> 
@@ -29,7 +29,7 @@ function addToDom () {
 
 //display monthly costs
 function displayBudget() {
-    console.log('in displayBudget'); //confirming funtion is running
+    // console.log('in displayBudget'); //confirming funtion is running
     let annualTotal = 0;
     //loop through employee array
     for (i = 0; i < employeeArray.length; i++) {
@@ -45,8 +45,7 @@ function displayBudget() {
     $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: $${parseFloat(monthlyTotalWithDec).toLocaleString('en')}</p>`);
     //if total>20k, change background to red
     if (monthlyTotal > 20000) {
-        console.log('change background color');
-        
+        // console.log('change background color');
         $('#totalMonthlyBudget').replaceWith(`<p id="totalMonthlyBudget">Total Monthly: <span class="red">$${parseFloat(monthlyTotalWithDec).toLocaleString('en')}</span></p>`);
     }
 }
@@ -55,8 +54,8 @@ function removeInputs () {
     //console.log('delete button clicked');
     
     const employeeObject = {
-        lastName: $('#lastName').val(),
         firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
         idNumber: $('#idNumber').val(),
         jobTitle: $('#jobTitle').val(),
         annualSalary: parseFloat($('#annualSalary').val())
@@ -69,8 +68,8 @@ function removeInputs () {
         // console.log(employeeArray[i]);
         // console.log(employeeObject);
 
-        if (employeeArray[i].lastName == employeeObject.lastName 
-            && employeeArray[i].firstName == employeeObject.firstName 
+        if (employeeArray[i].firstName == employeeObject.firstName 
+            && employeeArray[i].lastName == employeeObject.lastName 
             && employeeArray[i].idNumber == employeeObject.idNumber 
             && employeeArray[i].jobTitle == employeeObject.jobTitle 
             && employeeArray[i].annualSalary == employeeObject.annualSalary){
@@ -89,14 +88,16 @@ function removeInputs () {
 
     //display new employee array on DOM
     addToDom ();
+    displayBudget(); //update the monthly budget without the removed employee
+
 }
 
 function submitInputs() {
     
     //create employee object from input vals
     const employeeObject = {
-        lastName: $('#lastName').val(),
         firstName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
         idNumber: $('#idNumber').val(),
         jobTitle: $('#jobTitle').val(),
         annualSalary: parseFloat($('#annualSalary').val())
