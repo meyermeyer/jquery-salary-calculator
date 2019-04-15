@@ -72,7 +72,7 @@ function removeInputs () {
             && employeeArray[i].lastName == employeeObject.lastName 
             && employeeArray[i].idNumber == employeeObject.idNumber 
             && employeeArray[i].jobTitle == employeeObject.jobTitle 
-            && employeeArray[i].annualSalary == employeeObject.annualSalary){
+            && employeeArray[i].annualSalary.toFixed(2) == employeeObject.annualSalary){ //adding .toFixed makes the remove button work when a salary has been rounded even if number entered is the rounded to amount (so when input $.999 rounds to $1, remove button works with input $1)
             // console.log('remove object');
             
             employeeArray.splice(i,1);
