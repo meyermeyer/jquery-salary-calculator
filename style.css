@@ -1,5 +1,9 @@
 .red {
-    background-color: red;
+    background-color: #dc3545; /*same color red as the delete button Bootstrap default*/
+    color: #fff;
+    font-weight: 400;
+    border-radius: 2px;
+    padding: 3px;
 }
 
 #inputs ul li{
@@ -22,3 +26,6 @@ p {
     text-align: right;
     padding-right: 40px;
 }
+#buttons ul {
+     margin-bottom: 40px;
+ }
